@@ -4,6 +4,7 @@
 
 :root {
   --background: #ffffff;
+  --custom-bg: hsl(238, 100%, 12%);
   --foreground: #171717;
 }
 
@@ -16,6 +17,6 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: var(--custom-bg);
   font-family: Arial, Helvetica, sans-serif;
 }
