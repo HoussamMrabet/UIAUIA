@@ -99,3 +99,9 @@ html {
 ::-webkit-scrollbar-track {
   background: var(--background);
 }
+
+.gif-imgs
+{
+  width: 300px;
+  margin: 1rem;
+}
