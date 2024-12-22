@@ -5,7 +5,7 @@ const About = () => {
         <h1 
           className="text-4xl md:text-5xl font-extrabold text-center mb-8"
         >
-          Welcome to the Meme Coin Revolution!
+          Welcome to the UIA UIA coin Revolution!
         </h1>
 
         <h2 
@@ -44,7 +44,7 @@ const About = () => {
           <button 
             className="px-8 py-3 text-xl font-semibold text-white bg-gradient-to-r from-yellow-500 to-blue-200 rounded-full hover:bg-gradient-to-r hover:from-yellow-400 hover:to-blue-100 transform hover:scale-105 transition duration-500"
           >
-            Get MemeCoin Now! 🚀
+            Get UIA UIA Now! 🚀
           </button>
         </div>
       </div>
