@@ -3,20 +3,99 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --custom-bg: hsl(238, 100%, 12%);
-  --foreground: #171717;
+  --background: #ffffff; /* Light background for light mode */
+  --custom-bg: hsl(238, 100%, 12%); /* Dark background for overall theme */
+  --foreground: #171717; /* Dark text color for light mode */
+  --accent-color: #facc15; /* Accent color (yellow) */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* Dark background for dark mode */
+    --foreground: #ededed; /* Light text color for dark mode */
   }
 }
 
+/* General body styling */
 body {
-  color: black;
-  background: white;
+  color: var(--foreground);
+  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* Links */
+a {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-color); /* Hover effect on links */
+}
+
+/* Tailwind Customization */
+html {
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Specific Styles for the Hero Section */
+.hero {
+  min-height: 100vh; /* Ensure hero section takes full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--custom-bg);
+}
+
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  color: var(--foreground);
+}
+
+.hero .hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.hero .hero-description {
+  font-size: 1rem;
+  max-width: 600px;
+  color: var(--foreground);
+}
+
+/* Mobile responsiveness for Hero Section */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 0.875rem;
+  }
+}
+
+/* Scrollbar custom styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
 }
