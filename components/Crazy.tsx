@@ -25,7 +25,7 @@ const Hero = () => {
           />
         )}
       </div>
-      <div  onClick={handleClick} className="absolute top-0 w-full  ">
+      <div  onClick={handleClick} className="absolute top-0 w-full h-full flex justify-center items-center  ">
         <Cats hover={isVideoVisible} />
       </div>
     </div>

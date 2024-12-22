@@ -13,7 +13,7 @@ function Cats({hover}) {
     return null; // Render nothing on the server-side
   }
   return (
-	<svg style={{ backgroundColor: "transparent", width: "100%", height: "auto" }}
+	<svg style={{ backgroundColor: "transparent", width: "100%" , height: "100%", objectFit:"cover" }}
   viewBox="0 0 1186 735"
   fill="none"
   xmlns="http://www.w3.org/2000/svg">
