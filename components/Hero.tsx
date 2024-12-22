@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import useSound from 'use-sound';
+import Cats from "./Cats";
 
 const Hero = () => {
   const [hover, setHover] = useState(false);
@@ -38,19 +39,22 @@ const Hero = () => {
   };
 
   return (
-    <div>
+    <div className="mx-auto max-w-[1200px] relative flex justify-center items-center" >
       <div
-        className="inline-block transition-transform duration-300 relative"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        className="inline-block transition-transform duration-100 relative"
+   
       >
         <Image
           src="/hh.png"
-          width={600}
-          height={600}
+          width={500}
+          height={500}
           alt="Rotating image"
           className={`transition-transform duration-300 ${hover ? "animate-rotateY" : ""}`}
         />
+      </div>
+      <div className=" absolute top-0 w-full h-full"      onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave} >
+        <Cats/>
       </div>
     </div>
   );
