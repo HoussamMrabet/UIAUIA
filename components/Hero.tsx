@@ -1,60 +1,32 @@
 'use client';
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import useSound from 'use-sound';
+import { useState } from "react";
 import Cats from "./Cats";
 
 const Hero = () => {
-  const [hover, setHover] = useState(false);
-  const [play, { stop, isPlaying }] = useSound("/sound.mp3", { loop: true });
+  const [isVideoVisible, setIsVideoVisible] = useState(false); // State to control video visibility
 
-  useEffect(() => {
-    const enableAudioContext = () => {
-      // Try to resume AudioContext when a user interacts
-      if (typeof AudioContext !== 'undefined' && !isPlaying) {
-        const context = new (window.AudioContext || window.webkitAudioContext)();
-        context.resume();
-      }
-    };
-
-    // Listen to any mouse events or interactions to resume the audio context
-    document.addEventListener('mousedown', enableAudioContext);
-    document.addEventListener('keydown', enableAudioContext);
-
-    return () => {
-      document.removeEventListener('mousedown', enableAudioContext);
-      document.removeEventListener('keydown', enableAudioContext);
-    };
-  }, [isPlaying]);
-
-  const handleMouseEnter = () => {
-    setHover(true);
-    play(); // Play the sound when hovered
-  };
-
-  const handleMouseLeave = () => {
-    setHover(false);
-    stop(); // Stop the sound when mouse leaves
+  const handleClick = () => {
+    setIsVideoVisible(true); // Show the video when div is clicked
   };
 
   return (
-    <div className="mx-auto max-w-[1200px] h-screen relative flex justify-center items-center" >
+    <div className="mx-auto max-w-[1200px] h-screen relative flex justify-center items-center " onClick={()=> isVideoVisible && setIsVideoVisible(false)} >
       <div
-        className="inline-block transition-transform duration-100 relative"
-   
+        className="inline-block relative "
+        // Handle the click event to show the video
       >
-        <Image
-          src="/hh.png"
-          width={500}
-          height={500}
-          alt="Rotating image"
-          className={`transition-transform duration-300 ${hover ? "animate-rotateY" : ""}`}
-        />
+        {isVideoVisible && (
+          <video
+            autoPlay
+            loop
+            className="h-[500px]"
+            src="/vid.mp4" // Replace with your video file path
+          />
+        )}
       </div>
-      <div className=" absolute top-0 w-full h-full"      onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave} >
-        <Cats/>
+      <div  onClick={handleClick} className="absolute top-0 w-full  ">
+        <Cats hover={isVideoVisible} />
       </div>
     </div>
   );

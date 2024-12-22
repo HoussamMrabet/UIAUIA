@@ -2,8 +2,7 @@
 import {motion} from "motion/react"
 import React, { useEffect, useState } from 'react'
 
-function Cats() {
-	const [hover, setHover] = useState(false);
+function Cats({hover}) {
 	 const [isClient, setIsClient] = useState(false); // To ensure we're on the client side
 
   useEffect(() => {
@@ -14,7 +13,10 @@ function Cats() {
     return null; // Render nothing on the server-side
   }
   return (
-	<svg width="1186"  onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} style={{ backgroundColor: "transparent" }} height="735" viewBox="0 0 1186 735" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<svg style={{ backgroundColor: "transparent", width: "100%", height: "auto" }}
+  viewBox="0 0 1186 735"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg">
 <g id="Frame 2" clipPath="url(#clip0_71_7658)">
 
     <video
@@ -26,8 +28,7 @@ function Cats() {
         playsInline
       />
 <motion.g id="right"   initial={false}  animate={{
-            x: hover ? "100%" : "0%",  // Move to the right when hovered
-            opacity: hover ? 0 : 1,     // Make it disappear when hovered
+            x: hover ? "100%" : "0%",  // Move to the right when hovered     // Make it disappear when hovered
           }}
           transition={{
             duration: 0.8,
@@ -1332,8 +1333,7 @@ function Cats() {
 <motion.g id="left"    
           initial={false}
           animate={{
-            x: hover ? "-100%" : "0%",  // Move to the left when hovered
-            opacity: hover ? 0 : 1,     // Make it disappear when hovered
+            x: hover ? "-100%" : "0%",  // Move to the left when hovered    // Make it disappear when hovered
           }}
           transition={{
             duration: 0.8,
