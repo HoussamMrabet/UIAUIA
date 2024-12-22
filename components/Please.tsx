@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 
 const Please = () => {
@@ -44,10 +45,12 @@ const Please = () => {
       <h1 className="text-5xl font-black my-5 text-yellow-300">PLAY WITH ME</h1>
       {!isAccepted ? (
         <>
-          <img
+          <Image
             src={`/cat-${rejectCount}.jpg`}
             alt="Picture of a cat"
             className="w-60 h-60 mb-6"
+            width={800}
+            height={800}
           />
           <p className="text-4xl text-white text-center mb-4">
             Try me please?

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Head from "next/head";
+import { FaInstagram, FaTelegramPlane } from "react-icons/fa";
+import { FaXTwitter as FaTwitter } from "react-icons/fa6";
 
 const Hero = () => {
   return (
@@ -18,7 +20,10 @@ const Hero = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <section id="home" className="flex flex-col-reverse md:flex-row items-center justify-center min-h-screen px-6 md:px-16 lg:px-32 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500">
+      <section
+        id="home"
+        className="flex flex-col-reverse md:flex-row items-center justify-center min-h-screen px-6 md:px-16 lg:px-32 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500"
+      >
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/hh.png"
@@ -26,7 +31,7 @@ const Hero = () => {
             width={400}
             height={400}
             priority
-            className="object-contain animate-spin-slow"
+            className="object-contain animate-flip-accelerate"
           />
         </div>
 
@@ -41,18 +46,49 @@ const Hero = () => {
           </p>
           <div className="mt-8 flex justify-center md:justify-start gap-4">
             <a
-              href="#join-the-fun"
-              className="px-6 py-3 bg-yellow-400 text-black rounded-md text-lg hover:bg-yellow-500 transition"
+              href="#crazy"
+              className="px-6 py-3 bg-yellow-400 text-black rounded-md text-lg hover:bg-yellow-500 hover:text-white transition"
               aria-label="Join the UIA UIA fun"
             >
               Join the Fun! 🎉
             </a>
             <a
-              href="#buy-token"
+              href="https://pump.fun/coin/2qFsq2tSkEJT5tDp1HGgqRXZRtVXav4NNVYqjQJEpump"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 border border-white text-white rounded-md text-lg hover:bg-white hover:text-black transition"
               aria-label="Buy the UIA UIA Meme Token"
             >
               Buy Token 💸
+            </a>
+          </div>
+          <div className="mt-8 flex justify-center md:justify-start gap-6">
+            <a
+              href="https://instagram.com/uia_token"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Instagram"
+              className="text-white text-3xl hover:text-yellow-400 transition"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://x.com/uiatoken"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on X (Twitter)"
+              className="text-white text-3xl hover:text-yellow-400 transition"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              href="https://t.me/UIAUIAAI"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Join us on Telegram"
+              className="text-white text-3xl hover:text-yellow-400 transition"
+            >
+              <FaTelegramPlane />
             </a>
           </div>
         </div>

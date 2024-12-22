@@ -11,7 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="mx-auto max-w-[1200px] h-screen relative flex justify-center items-center " onClick={()=> isVideoVisible && setIsVideoVisible(false)} >
+    <div id="crazy" className="mx-auto max-w-[1200px] h-screen relative flex justify-center items-center " onClick={()=> isVideoVisible && setIsVideoVisible(false)} >
       <div
         className="inline-block relative "
         // Handle the click event to show the video

@@ -1,30 +1,40 @@
-'use client'
+'use client';
+
 import { useEffect, useState, useRef } from "react";
 import ReactPlayer from "react-player";
 import styles from "./LyricsPlayer.module.css";
 
-const LyricsPlayer = ({ audioSrc, lyrics, onPlayPauseToggle }) => {
-  const [currentTime, setCurrentTime] = useState(0);
-  const [currentLine, setCurrentLine] = useState(0);
-  const [isClient, setIsClient] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isFinished, setIsFinished] = useState(false);  // State to track if the audio is finished
-  const playerRef = useRef(null);
+type Lyric = {
+  time: number;
+  text: string;
+};
+
+type LyricsPlayerProps = {
+  audioSrc: string;
+  lyrics: Lyric[];
+  onPlayPauseToggle: (isPlaying: boolean) => void;
+};
+
+const LyricsPlayer: React.FC<LyricsPlayerProps> = ({ audioSrc, lyrics, onPlayPauseToggle }) => {
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [currentLine, setCurrentLine] = useState<number>(0);
+  const [isClient, setIsClient] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const playerRef = useRef<ReactPlayer | null>(null);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
   // Update current time when player progress changes
-  const handleProgress = (state) => {
+  const handleProgress = (state: { playedSeconds: number }) => {
     setCurrentTime(state.playedSeconds);
   };
 
   // Handle when the audio ends
   const handleEnded = () => {
-    setIsFinished(true);  // Mark audio as finished
-    setIsPlaying(false);  // Optionally, stop the player
-    onPlayPauseToggle(false);  // Update parent component if needed
+    setIsPlaying(false); // Optionally, stop the player
+    onPlayPauseToggle(false); // Update parent component if needed
   };
 
   // Find and update the current lyric index based on the audio time
@@ -44,12 +54,11 @@ const LyricsPlayer = ({ audioSrc, lyrics, onPlayPauseToggle }) => {
   // Toggle play/pause and reset when stopping
   const togglePlayPause = () => {
     if (isPlaying) {
-      playerRef.current.seekTo(0); // Seek to the beginning if stopping
+      playerRef.current?.seekTo(0); // Seek to the beginning if stopping
       setCurrentLine(0); // Reset lyric index
     }
     setIsPlaying(!isPlaying); // Toggle play/pause state
     onPlayPauseToggle(!isPlaying); // Update parent component with new state
-    setIsFinished(false);  // Reset finished state when toggling play
   };
 
   if (!isClient) {
@@ -58,14 +67,13 @@ const LyricsPlayer = ({ audioSrc, lyrics, onPlayPauseToggle }) => {
 
   return (
     <div className={`${styles.container} gap-20`}>
-      
       <div className={styles.lyrics}>
         <ReactPlayer
           ref={playerRef}
           url={audioSrc}
           controls={false} // Disable default controls
           onProgress={handleProgress}
-          onEnded={handleEnded}  // Handle when the audio ends
+          onEnded={handleEnded} // Handle when the audio ends
           playing={isPlaying} // Control play/pause with state
           width="100%"
           height="50px"
