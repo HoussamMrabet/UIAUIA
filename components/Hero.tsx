@@ -39,7 +39,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="mx-auto max-w-[1200px] relative flex justify-center items-center" >
+    <div className="mx-auto max-w-[1200px] h-screen relative flex justify-center items-center" >
       <div
         className="inline-block transition-transform duration-100 relative"
    
