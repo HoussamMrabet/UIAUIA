@@ -57,19 +57,19 @@ const LyricsPlayer = ({ audioSrc, lyrics, onPlayPauseToggle }) => {
   }
 
   return (
-    <div className={styles.container}>
-      <ReactPlayer
-        ref={playerRef}
-        url={audioSrc}
-        controls={false} // Disable default controls
-        onProgress={handleProgress}
-        onEnded={handleEnded}  // Handle when the audio ends
-        playing={isPlaying} // Control play/pause with state
-        width="100%"
-        height="50px"
-      />
+    <div className={`${styles.container} gap-20`}>
       
       <div className={styles.lyrics}>
+        <ReactPlayer
+          ref={playerRef}
+          url={audioSrc}
+          controls={false} // Disable default controls
+          onProgress={handleProgress}
+          onEnded={handleEnded}  // Handle when the audio ends
+          playing={isPlaying} // Control play/pause with state
+          width="100%"
+          height="50px"
+        />
         {lyrics.length > 0 && (
           <p key={currentLine} className={`${styles.active} font-black`}>
             {lyrics[currentLine].text}

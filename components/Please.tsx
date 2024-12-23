@@ -40,8 +40,8 @@ const Please = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center h-auto py-5 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600">
-      <h1 className="text-5xl font-black my-5 text-yellow-300">RANDOM SHIT</h1>
+    <section id="play" className="flex flex-col items-center justify-center h-auto py-10 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 gap-20">
+      <h1 className="text-5xl font-black my-5 text-yellow-300">PLAY WITH ME</h1>
       {!isAccepted ? (
         <>
           <img

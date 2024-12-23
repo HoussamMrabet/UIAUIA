@@ -18,7 +18,7 @@ const Hero = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <section className="flex flex-col-reverse md:flex-row items-center justify-center min-h-screen px-6 md:px-16 lg:px-32 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500">
+      <section id="home" className="flex flex-col-reverse md:flex-row items-center justify-center min-h-screen px-6 md:px-16 lg:px-32 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500">
         <div className="w-full md:w-1/2 flex justify-center">
           <Image
             src="/hh.png"

@@ -23,7 +23,7 @@ const Header = () => {
       }`}
     >
       <nav className="relative h-14 flex justify-between items-center px-4 md:px-8">
-        <a href="#" className="flex items-center gap-2 text-white font-semibold">
+        <a href="#home" className="flex items-center gap-2 text-white font-semibold">
           <IoLogoOctocat className='w-6 h-6 text-yellow-400' />
           UIA
         </a>
@@ -51,13 +51,13 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#section" className="text-white text-lg font-audiowide hover:text-yellow-400">
-                section
+              <a href="#play" className="text-white text-lg font-audiowide hover:text-yellow-400">
+                play
               </a>
             </li>
             <li>
-              <a href="#contact" className="text-white text-lg font-audiowide hover:text-yellow-400">
-                contact
+              <a href="#sing" className="text-white text-lg font-audiowide hover:text-yellow-400">
+                sing
               </a>
             </li>
           </ul>
@@ -82,13 +82,13 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a href="#section" className="text-white text-lg font-audiowide hover:text-yellow-400">
-              section
+            <a href="#play" className="text-white text-lg font-audiowide hover:text-yellow-400">
+              play
             </a>
           </li>
           <li>
-            <a href="#contact" className="text-white text-lg font-audiowide hover:text-yellow-400">
-              contact
+            <a href="#sing" className="text-white text-lg font-audiowide hover:text-yellow-400">
+              sing
             </a>
           </li>
         </ul>
